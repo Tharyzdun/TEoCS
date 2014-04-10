@@ -1,8 +1,8 @@
 // File name: projects/01/Nand16.tst
 
-load And16.hdl,
-output-file And16.out,
-compare-to And16.cmp,
+load Nand16.hdl,
+output-file Nand16.out,
+compare-to Nand16.cmp,
 output-list a%B1.16.1 b%B1.16.1 out%B1.16.1;
 
 set a %B0000000000000000,
