@@ -1,0 +1,58 @@
+CHIP Eq16 {
+	IN
+		a[16], b[16]; // 16-bit inputs
+	OUT
+		out;
+	PARTS:
+		Xor(a=a[0], b=b[0], out=nout0);
+		Not(in=nout0, out=out0);
+		Xor(a=a[1], b=b[1], out=nout1);
+		Not(in=nout1, out=out1);
+		Xor(a=a[2], b=b[2], out=nout2);
+		Not(in=nout2, out=out2);
+		Xor(a=a[3], b=b[3], out=nout3);
+		Not(in=nout3, out=out3);
+		Xor(a=a[4], b=b[4], out=nout4);
+		Not(in=nout4, out=out4);
+		Xor(a=a[5], b=b[5], out=nout5);
+		Not(in=nout5, out=out5);
+		Xor(a=a[6], b=b[6], out=nout6);
+		Not(in=nout6, out=out6);
+		Xor(a=a[7], b=b[7], out=nout7);
+		Not(in=nout7, out=out7);
+		Xor(a=a[8], b=b[8], out=nout8);
+		Not(in=nout8, out=out8);
+		Xor(a=a[9], b=b[9], out=nout9);
+		Not(in=nout9, out=out9);
+		Xor(a=a[10], b=b[10], out=nout10);
+		Not(in=nout10, out=out10);
+		Xor(a=a[11], b=b[11], out=nout11);
+		Not(in=nout11, out=out11);
+		Xor(a=a[12], b=b[12], out=nout12);
+		Not(in=nout12, out=out12);
+		Xor(a=a[13], b=b[13], out=nout13);
+		Not(in=nout13, out=out13);
+		Xor(a=a[14], b=b[14], out=nout14);
+		Not(in=nout14, out=out14);
+		Xor(a=a[15], b=b[15], out=nout15);
+		Not(in=nout15, out=out15);
+		
+		And(a=out0, b=out1, out=out01);
+		And(a=out2, b=out3, out=out23);
+		And(a=out4, b=out5, out=out45);
+		And(a=out6, b=out7, out=out67);
+		And(a=out8, b=out9, out=out89);
+		And(a=out10, b=out11, out=out1011);
+		And(a=out12, b=out13, out=out1213);
+		And(a=out14, b=out15, out=out1415);
+		
+		And(a=out01, b=out23, out=out03);
+		And(a=out45, b=out67, out=out46);
+		And(a=out89, b=out1011, out=out811);
+		And(a=out1213, b=out1415, out=out1215);
+		
+		And(a=out03, b=out46, out=out06);
+		And(a=out811, b=out1215, out=out815);
+		
+		And(a=out06, b=out815, out=out);
+}
