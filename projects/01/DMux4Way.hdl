@@ -16,18 +16,24 @@ CHIP DMux4Way {
     OUT a, b, c, d;
 
     PARTS:
+/* Simple way (18 Nand gates) :	
 	Not(in=sel[1], out=notsel1);
 	Not(in=sel[0], out=notsel0);
-//a
+a :
 	And(a=notsel1, b=notsel0, out=sela);
 	And(a=in, b=sela, out=a);
-//b
+b :
 	And(a=notsel1, b=sel[0], out=selb);
 	And(a=in, b=selb, out=b);
-//c
+c :
 	And(a=sel[1], b=notsel0, out=selc);
 	And(a=in, b=selc, out=c);
-//d
+d :
 	And(a=sel[1], b=sel[0], out=seld);
 	And(a=in, b=seld, out=d);
+*/
+/* Optimized way (15 Nand gates, via DMux gates) :	*/
+	DMux(in=in, sel=sel[1], a=first0, b=first1);
+	DMux(in=first0, sel=sel[0], a=a, b=b);
+	DMux(in=first1, sel=sel[0], a=c, b=d);
 }
