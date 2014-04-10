@@ -12,7 +12,7 @@ CHIP Mux {
     OUT out;
 
     PARTS:
-/* Logical :
+/* Simple way (8 Nand gates) :
 	Not(in=sel, out=notsel);
 	
 	And(a=a, b=notsel, out=x);
@@ -20,8 +20,8 @@ CHIP Mux {
 	
 	Or(a=x, b=y, out=out);
 */
-/* Nand only :	*/
-    Nand(a=sel, b=sel, out=notsel);
+/* Optimized way (4 Nand gates) :	*/
+	Not(in=sel, out=notsel);
 	
 	Nand(a=a, b=notsel, out=x);
 	Nand(a=sel, b=b, out=y);
