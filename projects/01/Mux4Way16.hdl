@@ -18,45 +18,6 @@ CHIP Mux4Way16 {
     PARTS:
 	Mux16(a=a, b=b, sel=sel[0], out=out0);
 	Mux16(a=c, b=d, sel=sel[0], out=out1);
-	Mux16(a=out0, b=out1, sel=sel[1], out=out);
-/*	
-x = sel[0]	y = sel[1]
-	Not(in=sel[0], out=notx);
-	Not(in=sel[1], out=noty);
 	
-e1	= And16(noty,notx,a)	= And16(And(noty),notx)),a)	
-	And(a=noty, b=notx, out=z1);
-	And16(
-		a[0]=z1, a[1]=z1, a[2]=z1, a[3]=z1, a[4]=z1, a[5]=z1, a[6]=z1, a[7]=z1,
-		a[8]=z1, a[9]=z1, a[10]=z1, a[11]=z1, a[12]=z1, a[13]=z1, a[14]=z1, a[15]=z1, 
-		b=a, out=e1);
-
-e2	= And16(noty,sel[0],b)	= And16(And(noty,sel[0]),b)	
-	And(a=noty, b=sel[0], out=z2);
-	And16(
-		a[0]=z2, a[1]=z2, a[2]=z2, a[3]=z2, a[4]=z2, a[5]=z2, a[6]=z2, a[7]=z2, 
-		a[8]=z2, a[9]=z2, a[10]=z2, a[11]=z2, a[12]=z2, a[13]=z2, a[14]=z2, a[15]=z2, 
-		b=b, out=e2);
-
-e3	= And16(sel[1],notx,c)	= And16(And(sel[1],notx),c)	
-	And(a=sel[1], b=notx, out=z3);
-	And16(
-		a[0]=z3, a[1]=z3, a[2]=z3, a[3]=z3, a[4]=z3, a[5]=z3, a[6]=z3, a[7]=z3, 
-		a[8]=z3, a[9]=z3, a[10]=z3, a[11]=z3, a[12]=z3, a[13]=z3, a[14]=z3, a[15]=z3, 
-		b=c, out=e3);
-
-e4	= And16(sel[1],sel[0],d)	= And16(And(sel[1],sel[0]),d)	
-	And(a=sel[1], b=sel[0], out=z4);
-	And16(
-		a[0]=z4, a[1]=z4, a[2]=z4, a[3]=z4, a[4]=z4, a[5]=z4, a[6]=z4, a[7]=z4, 
-		a[8]=z4, a[9]=z4, a[10]=z4, a[11]=z4, a[12]=z4, a[13]=z4, a[14]=z4, a[15]=z4, 
-		b=d, out=e4);
-
-out = Or(e1,e2,e3,e4)
-	Or16(a=e1, b=e2, out=e1ore2);
-	Or16(a=e3, b=e4, out=e3ore4);
-	Or16(a=e1ore2, b=e3ore4, out=out);
-*/
-
-
+	Mux16(a=out0, b=out1, sel=sel[1], out=out);
 }
