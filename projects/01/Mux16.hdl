@@ -12,7 +12,7 @@ CHIP Mux16 {
     OUT out[16];
 
     PARTS:
-    Nand(a=sel, b=sel, out=notsel);
+	Not(in=sel, out=notsel);
 	
 	Nand(a=a[0], b=notsel, out=x0);
 	Nand(a=a[1], b=notsel, out=x1);
