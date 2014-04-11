@@ -1,0 +1,47 @@
+/**
+ * Demultiplexor : 16-bit wise version
+ * {a,b} = {in,0} if sel==0
+ *         {0,in} if sel==1
+ */
+
+CHIP DMux16 {
+    IN in[16], sel;
+    OUT a[16], b[16];
+
+    PARTS:
+	Not(in=sel, out=notsel);
+	
+	And(a=notsel, b=in[0], out=a[0]);
+	And(a=notsel, b=in[1], out=a[1]);
+	And(a=notsel, b=in[2], out=a[2]);
+	And(a=notsel, b=in[3], out=a[3]);
+	And(a=notsel, b=in[4], out=a[4]);
+	And(a=notsel, b=in[5], out=a[5]);
+	And(a=notsel, b=in[6], out=a[6]);
+	And(a=notsel, b=in[7], out=a[7]);
+	And(a=notsel, b=in[8], out=a[8]);
+	And(a=notsel, b=in[9], out=a[9]);
+	And(a=notsel, b=in[10], out=a[10]);
+	And(a=notsel, b=in[11], out=a[11]);
+	And(a=notsel, b=in[12], out=a[12]);
+	And(a=notsel, b=in[13], out=a[13]);
+	And(a=notsel, b=in[14], out=a[14]);
+	And(a=notsel, b=in[15], out=a[15]);
+	
+	And(a=sel, b=in[0], out=b[0]);
+	And(a=sel, b=in[1], out=b[1]);
+	And(a=sel, b=in[2], out=b[2]);
+	And(a=sel, b=in[3], out=b[3]);
+	And(a=sel, b=in[4], out=b[4]);
+	And(a=sel, b=in[5], out=b[5]);
+	And(a=sel, b=in[6], out=b[6]);
+	And(a=sel, b=in[7], out=b[7]);
+	And(a=sel, b=in[8], out=b[8]);
+	And(a=sel, b=in[9], out=b[9]);
+	And(a=sel, b=in[10], out=b[10]);
+	And(a=sel, b=in[11], out=b[11]);
+	And(a=sel, b=in[12], out=b[12]);
+	And(a=sel, b=in[13], out=b[13]);
+	And(a=sel, b=in[14], out=b[14]);
+	And(a=sel, b=in[15], out=b[15]);
+}
